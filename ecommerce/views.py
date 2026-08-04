@@ -13,7 +13,7 @@ def home_page(request):
     print("Session key - %s " % request.session.session_key)
 
     if request.user.is_authenticated:
-        context["premium"] = "Oh Yeahhhhhh"
+        context["premium"] = "Welcome"
 
     return render(
         request,
