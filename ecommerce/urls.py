@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import LogoutView
 from django.urls import include, path
 from django.views.generic import TemplateView
 
@@ -9,6 +8,7 @@ from accounts.views import (
     LoginView,
     RegisterView,
     guest_register_view,
+    logout_view,
 )
 from addresses.views import (
     checkout_address_create_view,
@@ -25,7 +25,7 @@ urlpatterns = [
     path("contact/", contact_page, name="contact"),
 
     path("login/", LoginView.as_view(), name="login"),
-    path("logout/", LogoutView.as_view(), name="logout"),
+    path("logout/", logout_view, name="logout"),
     path("register/", RegisterView.as_view(), name="register"),
     path("register/guest/", guest_register_view, name="guest_register"),
 

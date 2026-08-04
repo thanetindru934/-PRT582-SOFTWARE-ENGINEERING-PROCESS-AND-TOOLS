@@ -1,4 +1,9 @@
-from django.contrib.auth import authenticate, get_user_model, login
+from django.contrib.auth import (
+    authenticate,
+    get_user_model,
+    login,
+    logout,
+)
 from django.shortcuts import redirect
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.generic import CreateView, FormView
@@ -41,6 +46,11 @@ def guest_register_view(request):
         return redirect("/register/")
 
     return redirect("/register/")
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
 
 
 class LoginView(FormView):
